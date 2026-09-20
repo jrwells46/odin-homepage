@@ -1,3 +1,19 @@
+@font-face {
+  font-family: 'Belgiano Serif';
+  src: url('./fonts/BelgianoSerif-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --font-size-extra-large: 3rem;
+  --font-size-large: 2rem;
+  --font-size-medium: 1.5rem;
+  --font-size-small: 1rem;
+  --color-blue: #013a6b;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -16,7 +32,169 @@ p {
   padding: 0;
 }
 
-/* placeholder style */
-body {
-  background-color: goldenrod;
+h1,
+h2,
+h3 {
+  font-family: 'Belgiano Serif', serif;
+}
+
+h2 {
+  font-size: var(--font-size-large);
+}
+
+h3 {
+  font-size: var(--font-size-medium);
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  line-height: 1.5;
+  font-family: system-ui, 'Helvetica Neue', sans-serif;
+  font-size: var(--font-size-small);
+}
+
+header {
+  background: linear-gradient(165deg, var(--color-blue) 50%, white 50%);
+}
+
+header > .wrapper {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
+header .wrapper .portrait-container {
+  max-width: 512px;
+  position: relative;
+  box-shadow: 0.25rem 0.25rem 0.75rem rgba(0, 0, 0, 0.2);
+}
+
+header .wrapper .portrait-container img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+header .wrapper .portrait-container h1 {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  padding: 1rem;
+  color: white;
+  font-size: var(--font-size-extra-large);
+}
+
+@media (min-width: 950px) {
+  header > .wrapper {
+    grid-template-columns: 2fr 3fr;
+  }
+
+  header .wrapper .portrait-container {
+    justify-self: right;
+  }
+}
+
+header .wrapper .about-me {
+  padding: 1rem;
+  box-shadow: 0.25rem 0.25rem 0.75rem rgba(0, 0, 0, 0.2);
+  background-color: white;
+}
+
+header .wrapper .about-me > * {
+  padding: 0.5rem;
+}
+
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+header .wrapper .about-me .social-icons {
+  justify-content: right;
+}
+
+.social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-icons a img {
+  width: 2.5rem;
+  height: auto;
+}
+
+.my-work .wrapper h2 {
+  padding: 0.5rem;
+}
+
+.my-work .wrapper .card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.my-work .wrapper .card-container .project-card {
+  max-width: 500px;
+  box-shadow: 0.25rem 0.25rem 0.75rem rgba(0, 0, 0, 0.2);
+}
+
+.my-work .wrapper .card-container .project-card img {
+  max-width: 100%;
+}
+
+.my-work .wrapper .card-container .project-card h3 {
+  padding: 0.5rem;
+}
+
+.my-work .wrapper .card-container .project-card p {
+  padding: 0.5rem;
+}
+
+footer {
+  background-color: var(--color-blue);
+  color: white;
+}
+
+footer .wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  justify-items: center;
+}
+
+footer .wrapper .contact-info {
+  padding: 1rem;
+}
+
+footer .wrapper .contact-info > * {
+  padding: 1rem;
+}
+
+footer .wrapper .contact-info .contact-phone,
+footer .wrapper .contact-info .contact-email {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+footer .wrapper .contact-info .contact-phone img,
+footer .wrapper .contact-info .contact-email img {
+  width: 1.5rem;
+  height: auto;
+  filter: invert(1);
+}
+
+footer .social-icons a:first-child img {
+  filter: invert(1);
+}
+
+@media (max-width: 679px) {
+  footer .wrapper picture {
+    justify-self: start;
+  }
 }
